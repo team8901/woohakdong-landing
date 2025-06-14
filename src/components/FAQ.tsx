@@ -1,9 +1,11 @@
+import { useTheme } from "@/components/theme-provider";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { CONTACT_EMAIL } from "@/lib/constants";
 
 interface FAQProps {
   question: string;
@@ -13,60 +15,36 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is this template free?",
-    answer: "Yes. It is a free ChadcnUI template.",
+    question: "어떻게 도입할 수 있나요?",
+    answer:
+      "우학동 도입 문의를 통해 기존 이메일 연동으로 바로 시작 가능합니다.",
     value: "item-1",
   },
   {
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+    question: "비용이 어떻게 되나요?",
+    answer: "우학동은 현재 무료로 이용 가능합니다.",
     value: "item-2",
-  },
-  {
-    question:
-      "Lorem ipsum dolor sit amet  Consectetur natus dolores minus quibusdam?",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?",
-    value: "item-3",
-  },
-  {
-    question: "Lorem ipsum dolor sit amet, consectetur adipisicing elit?",
-    answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-    value: "item-4",
-  },
-  {
-    question:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
-    value: "item-5",
   },
 ];
 
 export const FAQ = () => {
+  const { theme } = useTheme();
+
   return (
-    <section
-      id="faq"
-      className="container py-24 sm:py-32"
-    >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Frequently Asked{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Questions
-        </span>
+    <section id="faq" className="container py-24 sm:py-32">
+      <h2
+        className={`text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-br text-transparent bg-clip-text ${
+          theme === "dark"
+            ? "from-white  to-white/80"
+            : "from-black  to-black/80"
+        }`}
+      >
+        자주 묻는 질문
       </h2>
 
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full AccordionRoot"
-      >
+      <Accordion type="single" collapsible className="w-full AccordionRoot">
         {FAQList.map(({ question, answer, value }: FAQProps) => (
-          <AccordionItem
-            key={value}
-            value={value}
-          >
+          <AccordionItem key={value} value={value}>
             <AccordionTrigger className="text-left">
               {question}
             </AccordionTrigger>
@@ -77,13 +55,13 @@ export const FAQ = () => {
       </Accordion>
 
       <h3 className="font-medium mt-4">
-        Still have questions?{" "}
+        더 궁금한 점이 있으신가요?{" "}
         <a
           rel="noreferrer noopener"
-          href="#"
+          href={`mailto:${CONTACT_EMAIL}?subject=[우학동 도입 문의]`}
           className="text-primary transition-all border-primary hover:border-b-2"
         >
-          Contact us
+          문의하기
         </a>
       </h3>
     </section>
