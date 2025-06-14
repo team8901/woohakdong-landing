@@ -1,6 +1,10 @@
-import { LogoIcon } from "./Icons";
+import { LogoDarkIcon, LogoWhiteIcon } from "@/components/Icons";
+import { useTheme } from "@/components/theme-provider";
+import { GITHUB_URL, SERVICE_TITLE } from "@/lib/constants";
 
 export const Footer = () => {
+  const { theme } = useTheme();
+
   return (
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
@@ -12,8 +16,8 @@ export const Footer = () => {
             href="/"
             className="font-bold text-xl flex"
           >
-            <LogoIcon />
-            ShadcnUI/React
+            {theme === "dark" ? <LogoDarkIcon /> : <LogoWhiteIcon />}
+            {SERVICE_TITLE}
           </a>
         </div>
 
@@ -22,14 +26,15 @@ export const Footer = () => {
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href={GITHUB_URL}
               className="opacity-60 hover:opacity-100"
+              target="_blank"
             >
               Github
             </a>
           </div>
 
-          <div>
+          {/* <div>
             <a
               rel="noreferrer noopener"
               href="#"
@@ -47,10 +52,10 @@ export const Footer = () => {
             >
               Dribbble
             </a>
-          </div>
+          </div> */}
         </div>
 
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Platforms</h3>
           <div>
             <a
@@ -81,21 +86,21 @@ export const Footer = () => {
               Desktop
             </a>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">About</h3>
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="#features"
               className="opacity-60 hover:opacity-100"
             >
-              Features
+              서비스 소개
             </a>
           </div>
 
-          <div>
+          {/* <div>
             <a
               rel="noreferrer noopener"
               href="#"
@@ -103,12 +108,12 @@ export const Footer = () => {
             >
               Pricing
             </a>
-          </div>
+          </div> */}
 
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="#faq"
               className="opacity-60 hover:opacity-100"
             >
               FAQ
@@ -116,7 +121,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Community</h3>
           <div>
             <a
@@ -147,19 +152,19 @@ export const Footer = () => {
               Twitch
             </a>
           </div>
-        </div>
+        </div> */}
       </section>
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2024 Landing page made by{" "}
+          &copy; 2025 Landing page made by{" "}
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href="https://www.linkedin.com/in/leopoldo-miranda/"
+            href={GITHUB_URL}
             className="text-primary transition-all border-primary hover:border-b-2"
           >
-            Leo Miranda
+            WooHakDong
           </a>
         </h3>
       </section>
