@@ -157,14 +157,14 @@ export const Footer = () => {
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2025 Landing page made by{" "}
+          &copy; 2024 Landing page made by{" "}
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href={GITHUB_URL}
+            href="https://github.com/leoMirandaa/shadcn-landing-page"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
-            WooHakDong
+            Leopoldo Miranda
           </a>
         </h3>
       </section>
